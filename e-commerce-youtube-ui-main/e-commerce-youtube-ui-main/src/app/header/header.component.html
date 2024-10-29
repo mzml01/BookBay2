@@ -1,0 +1,24 @@
+<mat-toolbar color="accent" style="background-color: #333;">
+  <span>
+    <img src="../../assets/bookbaylogo2.jpg" alt="BookBay Logo" style="height: 100%; margin-right: 10px;">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <span style="font-family: 'Comic Neue', 'Comic Sans MS', cursive; color: #fff; font-size: 1.2em;">Your Ultimate Online BookStore</span>
+  </span>
+
+  <span class="space-buttons"></span>
+  <button *ngIf="!isLoggedIn()" routerLink="/login" mat-raised-button color="accent" style="background-color: #555; color: #fff;">
+    Login
+  </button>
+  <button *ngIf="isLoggedIn()" (click)="logout()" mat-raised-button color="warn" style="background-color: #d32f2f; color: #fff;">
+    Logout
+  </button>
+</mat-toolbar>
+
+<mat-toolbar color="primary" *ngIf="isLoggedIn()" style="background-color: #333;">
+  <button mat-raised-button color="primary" routerLink="/" style="background-color: #555; color: #fff;">Home</button>
+  <button *ngIf="!isAdmin()" mat-raised-button color="primary" routerLink="/cart" style="background-color: #555; color: #fff;">Cart</button>
+  <button *ngIf="!isAdmin()" mat-raised-button color="primary" routerLink="/myOrders" style="background-color: #555; color: #fff;">My Orders</button>
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/addNewProduct" style="background-color: #555; color: #fff;">Add New Product</button>
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/showProductDetails" style="background-color: #555; color: #fff;">Show Product Details</button>
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/orderInformation" style="background-color: #555; color: #fff;">Order Information</button>
+</mat-toolbar>
